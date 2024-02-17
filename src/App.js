@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import './React-Components/Header';
+import Header from './React-Components/Header';
+import Sortcloth from './React-Components/SortCloth';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-         
+    <div className='NavBar'>
+      <header>
+        <Header />
       </header>
+      <Sortcloth />
     </div>
   );
 }

@@ -1,0 +1,120 @@
+:root {
+  /* Primary Color: Blue */
+  --primary-color: #007bff;
+
+  /* Secondary Color: Light Grey */
+  --secondary-color: #f8f9fa;
+
+  /* Accent Color: Red */
+  --accent-color: #ff6b6b;
+
+  /* Complementary Color: Green */
+  --complementary-color: #28a745;
+
+  /* Neutral Color: White */
+  --neutral-color: #ffffff;
+
+  /* Optional Accent Color: Yellow */
+  --optional-accent-color: #ffc107;
+}
+
+.logo {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: var(--complementary-color);
+  /* font-weight: bold; */
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  margin: 0 10px;
+  transition: all 0.3s;
+}
+nav ul li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-family: "Maven Pro", sans-serif;
+  font-optical-sizing: auto;
+}
+nav ul li:hover {
+  /* transform: translateY(-5px); */
+  transform: scale(1.1);
+}
+.search-login {
+  display: flex;
+  align-items: center;
+}
+.search {
+  margin-right: 20px;
+}
+
+.login-btn {
+  background-color: #fff;
+  color: #333;
+  padding: 8px 16px;
+  /* border: none; */
+  border-radius: 5px;
+  border: solid var(--accent-color);
+  cursor: pointer;
+}
+.login-btn {
+  padding: 17px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 0;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+.login-btn:hover {
+  /* letter-spacing: 3px; */
+  background-color: var(--primary-color);
+  color: hsl(0, 0%, 100%);
+  box-shadow: var(--primary-color) 0px 7px 29px 0px;
+}
+
+.login-btn:active {
+  /* letter-spacing: 3px; */
+  background-color: var(--accent-color);
+  color: hsl(0, 0%, 100%);
+  box-shadow: var(--accent-color) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.input {
+  max-width: 190px;
+  background-color: var(--secondary-color);
+  color: black;
+  padding: 0.15rem 0.5rem;
+  min-height: 40px;
+  border-radius: 10px;
+  border: solid var(--primary-color) 2px;
+  outline: none;
+  /* border: none; */
+  line-height: 1.15;
+  /* box-shadow: 0px 10px 20px -18px; */
+}
+
+.input:focus {
+  border-bottom: 2px solid var(--accent-color);
+  border-radius: 4px 4px 2px 2px;
+}
+
+.input:hover {
+  outline: 1px solid lightgrey;
+}
