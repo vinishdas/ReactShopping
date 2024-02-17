@@ -1,0 +1,33 @@
+.item-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: solid pink 2px;
+  margin: 10px;
+}
+
+.item-card {
+  border: solid rgb(255, 0, 43) 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 5px 10px 5px;
+
+  flex-direction: column;
+  padding: 10px;
+}
+.item-card img {
+  /* border: solid black 2px; */
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+}
+.item-card h3 {
+  color: black;
+  max-width: 300px; /* Set maximum width */
+  overflow-wrap: break-word;
+}
+.item-card p {
+  font-size: larger;
+  margin-top: 5px;
+}

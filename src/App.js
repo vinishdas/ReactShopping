@@ -1,41 +1,46 @@
 import './App.css';
-import './React-Components/Header';
-import Header from './React-Components/Header';
-import Sortcloth from './React-Components/SortCloth';
+import './Header';
+import Header from './Header';
+import Sortcloth from './SortCloth';
 import { useEffect, useState } from 'react';
-
-const API_URL = 'https://fakestoreapi.com';
-
+import ProductList from './ProductList';
+ 
 const App = () => {
-  const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
-  const [category, setCategory] = useState('');
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [cart, setCart] = useState([]);
+
 
   useEffect(() => {
-    fetchItems();
+    // Fetch data from API
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => {
+        setProducts(data);
+        setFilteredProducts(data);
+      })
+      .catch(error => console.error('Error fetching data:', error));
   }, []);
 
 
-  const fetchItems = async () => {
-    try {
-      const response = await fetch('https://fakestoreapi.com/products/category/men\'s clothing');
-      const data = await response.json();
-      setItems(data);
-      setFilteredItems(data); // Initially display all items
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+
+  const handleCategoryClick = category => {
+    const filtered = products.filter(product => product.category === category);
+    setFilteredProducts(filtered);
   };
-  const handleCategoryChange = (selectedCategory) => {
-    // Filter items based on selected category
-    setCategory(selectedCategory);
-    if (selectedCategory === 'men') {
-      setFilteredItems(items.filter(item => item.category === 'men'));
-    } else if (selectedCategory === 'women') {
-      setFilteredItems(items.filter(item => item.category === 'women'));
-    } else {
-      setFilteredItems(items);
-    }
+
+
+  const handleSearch = term => {
+    setSearchTerm(term);
+    const filtered = products.filter(product =>
+      product.title.toLowerCase().includes(term.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
+  const addToCart = product => {
+    setCart(prevCart => [...prevCart, product]);
   };
 
 
@@ -47,39 +52,14 @@ const App = () => {
         </header>
         <Sortcloth />
       </div>
+      <ProductList products={filteredProducts} addToCart={addToCart} />
 
-      <div className="item-cards">{filteredItems.map(item => (<ItemCard key={item.id} item={item} />))}
-      </div>
+
     </>
   );
 }
 
 
-const Navbar = ({ onCategoryChange }) => {
-  return (
-    <nav>
-      <ul>
-        <li onClick={() => onCategoryChange('men')}>Men</li>
-        <li onClick={() => onCategoryChange('women')}>Women</li>
-      </ul>
-    </nav>
-  );
-};
-const SortDivisionArea = () => {
-  return (
-    <div>
-      {/* Sorting options */}
-    </div>
-  );
-};
-const ItemCard = ({ item }) => {
-  return (
-    <div className="item-card">
-      <img src={item.image} alt={item.name} />
-      <h3>{item.name}</h3>
-      <p>{item.price}</p>
-      {/* Additional item details */}
-    </div>
-  );
-};
+
+
 export default App;

@@ -49,18 +49,5 @@ header {
   margin-left: 20px;
   margin-right: 20px;
 }
-.item-cards {
-  display: flex;
-  flex-direction: row;
-  border: solid pink 2px;
-}
-.item-card {
-  border: solid rgb(255, 0, 43) 2px;
-  display: flex;
-  flex-direction: column;
-}
-.item-card img {
-  border: solid black 2px;
-  height: 100px;
-  width: 100px;
-}
+
+
