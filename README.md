@@ -14,4 +14,11 @@ Welcome to the React Shopping App! This project is a simple e-commerce applicati
 To run this project locally, follow these steps:
 
 1. Clone this repository:
+ https://github.com/vinishdas/ReactShopping.git
+
+
+2. Navigate to the project directory:
+   
+
+
 
