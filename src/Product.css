@@ -1,18 +1,43 @@
+:root {
+  /* Primary Color: Blue */
+  --primary-color: #007bff;
+
+  /* Secondary Color: Light Grey */
+  --secondary-color: #f8f9fa;
+
+  /* Accent Color: Red */
+  --accent-color: #ff6b6b;
+
+  /* Complementary Color: Green */
+  --complementary-color: #28a745;
+
+  /* Neutral Color: White */
+  --neutral-color: #ffffff;
+
+  /* Optional Accent Color: Yellow */
+  --optional-accent-color: #ffc107;
+}
+
 .item-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: solid pink 2px;
+  /* border: solid pink 2px; */
   margin: 10px;
+  justify-content: space-around;
 }
 
 .item-card {
-  border: solid rgb(255, 0, 43) 2px;
+  width: 280px;
+  height: 400px;
+
+  border: solid var(--primary-color) 2px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 5px 10px 5px;
-
+  box-shadow: #bcb8b8 2px 2px 2px 2px;
   flex-direction: column;
   padding: 10px;
 }
@@ -23,11 +48,38 @@
   border-radius: 5px;
 }
 .item-card h3 {
+  /* border: solid black 2px; */
+  font-size: medium;
+  font-family: "Roboto", sans-serif;
+  width: 300px;
+  text-align: center;
   color: black;
   max-width: 300px; /* Set maximum width */
-  overflow-wrap: break-word;
+  /* overflow-wrap: break-word; */
+  text-overflow: clip;
+  margin: 0px 5px 20px 5px;
 }
 .item-card p {
-  font-size: larger;
-  margin-top: 5px;
+  font-size: 30px;
+  margin: 10px;
+  opacity: 0.8;
+}
+.item-card button {
+  background: #5fd47a;
+  font-family: inherit;
+  padding: 0.6em 1.3em;
+  font-weight: 900;
+  font-size: 18px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
+.item-card button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+.item-card button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
 }
